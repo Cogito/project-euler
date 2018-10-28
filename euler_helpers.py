@@ -48,6 +48,14 @@ def prime_factors(x):
     return factors
 
 
+def pairs(seq):
+    i = iter(seq)
+    prev = next(i, None)
+    for item in i:
+        yield prev, item
+        prev = item
+
+
 def is_pandigital(number, length=None):
     number = str(number)
     if length and len(number) != length:
