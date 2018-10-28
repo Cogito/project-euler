@@ -1,5 +1,6 @@
 import primesieve
 import itertools
+import gmpy
 
 
 def is_prime(n):
@@ -32,6 +33,19 @@ def primes():
     it = primesieve.Iterator()
     while True:
         yield it.next_prime()
+
+
+def prime_factors(x):
+    prime = gmpy.mpz(2)
+    x = gmpy.mpz(x)
+    factors = {}
+    while x >= prime:
+        newx, mult = x.remove(prime)
+        if mult:
+            factors[prime] = mult
+            x = newx
+        prime = prime.next_prime()
+    return factors
 
 
 def is_pandigital(number, length=None):
