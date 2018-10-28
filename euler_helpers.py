@@ -79,3 +79,8 @@ def test_pandigital():
     assert is_pandigital(12)
     assert is_pandigital(987654321)
     assert not is_pandigital(13579)
+
+
+def int_permutations(integer):
+    for digits in itertools.permutations(str(integer)):
+        yield int("".join(digits))
