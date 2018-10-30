@@ -37,9 +37,25 @@ def find_doubles(number):
     return doubles
 
 
+def find_triples(number):
+    locations = [[], [], [], []]
+    for i, c in enumerate(str(number)):
+        if c == '0':
+            locations[0].append(i)
+        if c == '1':
+            locations[1].append(i)
+        if c == '2':
+            locations[2].append(i)
+    triples = []
+    for l in locations:
+        if len(l) >= 3:
+            triples.extend(combinations(l, 3))
+    return triples
+
+
 def p051():
     for number in tqdm(primes()):
-        for family in replace_digits(number, find_doubles(number)):
+        for family in replace_digits(number, find_triples(number)):
             if sum(1 if is_prime(n) else 0 for n in family) >= 7:
                 print([1 if is_prime(n) else 0 for n in family])
                 print(family)
