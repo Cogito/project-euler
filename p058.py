@@ -13,10 +13,10 @@ def diagonals():
 
 def p058():
     total = 1
-    primes = 1
+    primes = 0
     length = 1
     ds = diagonals()
-    while primes / total >= 0.1:
+    while primes / total >= 0.1 or primes == 0:
         length += 2
         for _ in range(4):
             total += 1
