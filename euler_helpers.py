@@ -114,3 +114,14 @@ def heptagonal_numbers(minimum=0, maximum=float('inf')):
 def octagonal_numbers(minimum=0, maximum=float('inf')):
     numbers = (n * (3 * n - 2) for n in itertools.count(start=1))
     yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def digit_sum(n):
+    return sum(int(digit) for digit in str(n))
+
+
+def digit_product(n):
+    p = 1
+    for i in str(n):
+        p *= int(i)
+    return p
