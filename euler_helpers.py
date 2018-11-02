@@ -84,3 +84,33 @@ def test_pandigital():
 def int_permutations(integer):
     for digits in itertools.permutations(str(integer)):
         yield int("".join(digits))
+
+
+def triangle_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n * (n + 1) // 2 for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def square_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n ** 2 for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def pentagonal_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n * (3 * n - 1) // 2 for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def hexagonal_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n * (2 * n - 1) for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def heptagonal_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n * (5 * n - 3) // 2 for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
+
+
+def octagonal_numbers(minimum=0, maximum=float('inf')):
+    numbers = (n * (3 * n - 2) for n in itertools.count(start=1))
+    yield from (n for n in itertools.takewhile(lambda n: n <= maximum, numbers) if minimum <= n)
