@@ -117,7 +117,7 @@ def octagonal_numbers(minimum=0, maximum=float('inf')):
 
 
 def digit_sum(n):
-    return sum(int(digit) for digit in str(n))
+    return sum(int(digit) for digit in str(n) if digit.isdigit())
 
 
 def digit_product(n):
